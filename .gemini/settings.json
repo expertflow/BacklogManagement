@@ -1,0 +1,26 @@
+{
+  "security": {
+    "auth": {
+      "selectedType": "oauth-personal"
+    }
+  },
+  "mcpServers": {
+    "atlassian": {
+      "command": "uvx",
+      "args": [
+        "mcp-atlassian"
+      ],
+      "env": {
+        "JIRA_URL": "https://expertflow-docs.atlassian.net",
+        "JIRA_USERNAME": "jiraadmin@expertflow.com",
+        "JIRA_API_TOKEN": "ATATT3xFfGF0udlsDPEokHLTwldgd5IPnUda3V-AcMfbrRNjYFCkg6izPnXESdla2qlmduV9kYGAEqF1VaNZqnjPcCi_hBYt7pDkWuGniblwfSnwNu9o2CA1-j5G_62wicv3OnDoiLahIg7aNsyfQ2DTCiS9dgEAPPMdVCbNThEA62IezvrF_5U=35C1DDE0",
+        "CONFLUENCE_URL": "https://expertflow-docs.atlassian.net/wiki",
+        "CONFLUENCE_USERNAME": "jiraadmin@expertflow.com",
+        "CONFLUENCE_API_TOKEN": "ATATT3xFfGF0udlsDPEokHLTwldgd5IPnUda3V-AcMfbrRNjYFCkg6izPnXESdla2qlmduV9kYGAEqF1VaNZqnjPcCi_hBYt7pDkWuGniblwfSnwNu9o2CA1-j5G_62wicv3OnDoiLahIg7aNsyfQ2DTCiS9dgEAPPMdVCbNThEA62IezvrF_5U=35C1DDE0"
+      }
+    }
+  },
+  "general": {
+    "previewFeatures": true
+  }
+}
