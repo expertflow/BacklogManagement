@@ -12,17 +12,18 @@ To maximize productivity and minimize "Management Debt," Expertflow CX standardi
 - **Definition:** The "What." A large body of work within an initiative, deliverable within 1-2 Program Increments (PIs).
 - **Mandatory Link:** Must link to a Level 0 Initiative.
 
-### Level 2: Story (The Unit of Value)
-- **Definition:** The "Unit of Delivery." The smallest independently valuable and testable unit of work.
-- **Rules:** 
-    - Replaces the "Feature" level.
-    - Must fit within a single Sprint.
-- **Mandatory Metadata:** `Work Category`.
+### Level 2: Story / Bug / Task (The Unit of Value/Effort)
+- **Story:** The smallest unit of new released capability. (Workflow: Release-Track).
+- **Bug:** A production or customer-reported defect. (Workflow: Release-Track).
+- **Task:** Operational work that supports the product but is **not released** as part of the code (e.g., Lab Setup, UX Design, Documentation).
+    - **Role:** Allows operational experts to track effort without being blocked by Product QA cycles.
+    - **Workflow:** Fast-Track (Simplified: To Do -> In Progress -> Done).
+- **Rules:** Every Level 2 item must still link to a Level 1 Epic.
 
 ### Level 3: Sub-task & Story-bug (The Unit of Action)
-- **Sub-task:** Technical breakdown of a Story.
-- **Story-bug:** A defect identified during the development/QA of a specific Story.
-- **Rule:** Story-bugs live at this level to keep the main backlog clean.
+- **Sub-task:** Technical breakdown of a Story or Level 2 Bug.
+- **Story-bug:** A defect identified *during* the development or QA of an active Story. 
+- **Rule:** Story-bugs live at this level to prevent production bugs from cluttering the development flow of a specific feature.
 
 ---
 
@@ -45,10 +46,11 @@ To bridge the gap between Customer Promises and Product Execution, all customer-
 - **Customer Projects (`CUS-XXX`):** Capture "Customer Commitments" (Requirements/Promises).
 - **Product Projects (`EF-INTERNAL`):** Capture "Product Deliverables" (Functional/Technical Execution).
 
-### Fulfillment Link Protocol:
-Every **Customer Commitment** that requires development must be linked to a **Product Deliverable** using the following specific link type:
-- **Link Type:** `Implements / Is Implemented By`
-- **Rule:** A Product Story or Epic can fulfill multiple Customer Commitments (One-to-Many).
+### Blocker Link Protocol:
+To ensure maximum delivery pressure and visibility, every **Customer Commitment** that requires internal development must use a "Hard Blocker" relationship:
+- **Link Type:** `is blocked by / blocks`
+- **Direction:** **Customer Commitment** (`CUS-XXX`) ➔ `is blocked by` ➔ **Product Deliverable** (`EF-INTERNAL`).
+- **Productivity Win:** This ensures that internal work is automatically flagged as a blocker for customer-facing promises, making "Wait Time" and "Blocker Analysis" easy to track.
 
 ---
 
