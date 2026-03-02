@@ -1,6 +1,7 @@
 # Project Context: Expertflow CX Backlog Management
 
 ## 0. Context Inheritance
+
 This project inherits all strategic vision, work categories, and CI gates defined in the **[Expertflow Global Context](./_bmad/bmm/data/expertflow-global-context.md)**. Local rules defined here override global rules only when explicitly stated.
 
 ## 1. Project Overview
@@ -26,8 +27,8 @@ To minimize management overhead and maximize flow, all work must follow this str
 
 To maximize velocity, work follows one of two paths based on its impact on the product codebase:
 
--   **Release-Track (Stories/Bugs):** Requires the full `Build -> QA -> Release` lifecycle. Changes the core product bits.
--   **Fast-Track (Tasks/Lab/Docs/Ops):** Bypasses the formal release cycle. Changes are marked "Done" upon verification (e.g., updating a customer's security certificate, setting up a lab, or updating a document).
+- **Release-Track (Stories/Bugs):** Requires the full `Build -> QA -> Release` lifecycle. Changes the core product bits.
+- **Fast-Track (Tasks/Lab/Docs/Ops):** Bypasses the formal release cycle. Changes are marked "Done" upon verification (e.g., updating a customer's security certificate, setting up a lab, or updating a document).
 
 *Note: All **Customer Instance Ops/Admin** tasks follow the Fast-Track.*
 
@@ -75,14 +76,16 @@ We measure the health of this system using:
 
 To automate the "Golden Chain," we use a series of connected BMAD workflows that pass context from discovery to operations.
 
-| Workflow Stage | Trigger | Key Input | Primary Output | Connecting "Glue" |
-| :--- | :--- | :--- | :--- | :--- |
-| **1. PoC Scaffolding** | Presales SOW | Success Criteria | POC Project | `poc-hack` labels |
-| **2. POV Scaffolding** | New PO | PoC Project Data | CUS Project | "Golden Chain" Jira Links |
-| **3. Project Context** | POV Validation | Jira Backlog | `project-context.md` | Persistent Session Variables |
-| **4. Sprint Planning** | Iteration Start | WIP Capacity | Active Sprint | WIP Formula: `(H+A) x 1.5` |
-| **5. Correct-Course** | Change Request | Active Plan | Updated Backlog | WIP "Slot Swaps" |
-| **6. Maintenance** | CRM Renewal | SOP Library | Fast-Track Tasks | SOP MD Links |
+
+| Workflow Stage         | Trigger         | Key Input        | Primary Output       | Connecting "Glue"            |
+| ---------------------- | --------------- | ---------------- | -------------------- | ---------------------------- |
+| **1. PoC Scaffolding** | Presales SOW    | Success Criteria | POC Project          | `poc-hack` labels            |
+| **2. POV Scaffolding** | New PO          | PoC Project Data | CUS Project          | "Golden Chain" Jira Links    |
+| **3. Project Context** | POV Validation  | Jira Backlog     | `project-context.md` | Persistent Session Variables |
+| **4. Sprint Planning** | Iteration Start | WIP Capacity     | Active Sprint        | WIP Formula: `(H+A) x 1.5`   |
+| **5. Correct-Course**  | Change Request  | Active Plan      | Updated Backlog      | WIP "Slot Swaps"             |
+| **6. Maintenance**     | CRM Renewal     | SOP Library      | Fast-Track Tasks     | SOP MD Links                 |
+
 
 **Constraint:** No workflow may be executed in isolation. Every agent MUST read the `project-context.md` before initiating a task to ensure continuity of the "Golden Thread."
 
