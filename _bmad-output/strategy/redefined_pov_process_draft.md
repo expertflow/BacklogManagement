@@ -9,22 +9,27 @@ The current manual process involves:
 5. ProjectDev and PM planning project-specific work.
 
 ### Identified Friction Points
-- **Synchronous Bottlenecks:** Dependence on high-level meetings for discovery.
+- **Synchronous Bottlenecks:** Dependence on high-level meetings for di/scovery.
 - **Manual Discovery:** Risk identification is brain-storming based rather than data-driven.
 - **Invisible Dependencies:** Engagement of POs is manual and lacks formal tracking in the "Golden Chain."
 - **Lack of Speed-Native Hierarchy:** Work isn't immediately structured into Level 0-3.
 
-## 2. Proposed "POV 2.0" (AI-Native)
-Transition from **Meeting-Driven** to **AI-Assisted Orchestration**.
+## 2. Proposed "POV 2.0" Workflow (AI-Native)
 
-### Workflow Steps
-1. **AI-Led Intake (Pre-POV):** AI Analyst parses PO and deliverables, generating a **POV Readiness Report** (Gap Analysis vs. Roadmap).
-2. **Golden Chain Validation (Async):** POs and ProjectDev review the report and link Customer Epics (in the new Jira Project) to Product Deliverables (in EF-INTERNAL).
-3. **Speed-Native Scaffolding:** AI Agent auto-creates the Jira Project (Level 0) and drafts Epics/Stories (Levels 1 & 2).
+### 2.1 PoC-to-POV Transition (Inheritance)
+*   **Context Lookup:** The AI Analyst automatically searches Jira for a `POC-[Customer]` project or epics before starting the POV.
+*   **Hack Detection:** Any Level 2 stories tagged `poc-hack` in the PoC project are imported into the POV Readiness Report as "High-Risk Technical Debt."
+*   **Golden Chain Enforcement:** No POV can be validated if a `poc-hack` exists without a corresponding "Proper Build" Epic in `EF-INTERNAL` (linked via *Blocked By*).
+*   **Success Continuity:** Validated Success Criteria from the PoC are carried over as "Mandatory Deliverables" in the POV.
+
+1. **AI-Led Intake:** AI Analyst parses the PO and generates the **POV Readiness Report** using the **`pov-scaffolding`** BMAD workflow.
+2. **The Golden Chain Link:** The Project Manager/PO validates the report and ensures every Customer Story (Commitment) is linked to an internal Product Deliverable via an "Is Blocked By" relationship.
+3. **Scaffolding:** The BMAD workflow automatically scaffolds the Level 1 Epic and Level 2 Stories in the Customer Project.
 4. **Efficiency Kickoff:** Finance chairs a 15-minute sync for final conflict resolution and commitment, rather than discovery.
 
 ## 3. Tooling Strategy
-- **Jira:** Project per PO (Level 0), Epics for Customer Commitments (Level 1).
+- **BMAD Workflow:** `_bmad/bmm/workflows/pov-scaffolding/workflow.md`
+- **Jira:** Project per Customer (e.g., `CUS-LLA`), Epic per PO (Level 1), Stories for Commitments (Level 2).
 - **Golden Chain:** "Blocked By" links from Customer Projects to Internal Product Projects.
 - **WIP Management:** Team Capacity = (# Humans + # AI Agents) x 1.5.
 

@@ -1,1 +1,10 @@
 .DS_Store
+.gemini/settings.json
+.gdrive-server-credentials.json
+credentials.json
+gdrive_credentials.json
+gcp-oauth-credentials.json
+gcp-oauth.keys.json
+
+
+node_modules/

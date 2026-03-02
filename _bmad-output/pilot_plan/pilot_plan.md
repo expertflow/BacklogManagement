@@ -1,53 +1,49 @@
-# Pilot Plan: Operation Golden Thread
-**Objective:** Validate the "Cross-Project Handshake" hierarchy in a controlled environment before full rollout.
+# Pilot Plan: Operation Golden Thread (Q1-2026)
+**Objective:** Validate the "Cross-Project Handshake" by linking active Customer Commitments on Board 1277 to Product Deliverables on Board 1310.
 
 ---
 
-## 1. Scope
-*   **Target PI:** Q2-2025 (Next Planning Cycle)
-*   **Pilot Customer:** Missouri Poison Center (`MPCP`)
-*   **Pilot Product Team:** CX Core Team (`CIM`)
+## 1. Scope & Target Projects
+*   **Target PI:** Q1-2026 (Active)
+*   **Pilot Customer Projects (Board 1277):**
+    *   **ZSM (Zong Smart Messenger):** Rasa X stabilization and Bitnami Migration.
+    *   **ZWA (Zong WFM):** Meta App Onboarding & Calabrio Integration.
+*   **Pilot Product Teams (Board 1310):**
+    *   **CX-Core:** Core Messenger & SLA logic.
+    *   **DevOps:** Infrastructure hardening (Postgres monitoring, Image registry).
 
-## 2. Success Criteria
-1.  **Traceability:** Can we click from an `MPCP` Epic to see the exact status of the `CIM` development work?
-2.  **Visibility:** Does the new PI Planning Dashboard accurately show "Gaps" (MPCP Epics with no CIM links)?
-3.  **Adoption:** Does the Project Manager (PM) for MPCP and the Product Owner (PO) for CIM understand the linking process?
+## 2. Actionable Success Criteria
+1.  **Direct Traceability:** Every `Critical` issue on Board 1277 (e.g., **ZSM-292** Bot Down Handling) must be linked as **"IS BLOCKED BY"** a technical story on Board 1310.
+2.  **Gap Visibility:** The PI Planning Dashboard must highlight "Unlinked" customer requests (e.g., **ZWA-2** Meta Onboarding) that lack an assigned product team.
+3. **WIP Alignment:** Product teams on Board 1310 must prioritize work that blocks **ZSM** go-lives.
 
 ---
 
-## 3. Execution Steps
+## 3. Immediate Execution Steps
 
-### Phase 1: Configuration (Days 1-2)
+### Phase 1: The "Golden Chain" Mapping (Days 1-2)
+*   **Who:** AI Analyst / PM
+*   **Actions:**
+    1.  Audit **Board 1277** for `In Progress` stories.
+    2.  For each, identify the blocking technical task on **Board 1310** (e.g., **ZSM-290** Memory Issue blocking **ZSM-295** Migration).
+    3.  Create the Jira Link: `[1277 Issue] is blocked by [1310 Issue]`.
+
+### Phase 2: Dashboard Implementation (Days 3-5)
 *   **Who:** JIRA Admin / Architect
 *   **Actions:**
-    1.  Create the JIRA Link Type: `Implements` / `Is Implemented By`.
-    2.  Add the `Target PI` field to both `MPCP` and `CIM` projects.
-    3.  Create the "PI Planning Dashboard" page in Confluence using the V2 Specification.
+    1.  Update the **PI Planning Dashboard (Confluence)** to filter for Q1-2026 tags.
+    2.  Configure a "Critical Path" gadget showing all **1277** issues blocked by **1310** work.
+    3.  Flag any **1310** task that is `In Progress` but does NOT support a **1277** commitment (The "Orphaned Work" check).
 
-### Phase 2: Data Prep (Days 3-5)
-*   **Who:** PM (MPCP) & PO (CIM)
+### Phase 3: The "Triage Sync" (Bi-Weekly)
+*   **Who:** PO + Tech Lead + Architect (The Triad)
 *   **Actions:**
-    1.  **PM:** Go to the Missouri Poison Center Confluence page.
-    2.  **PM:** Create/Update the "Deliverables" table. ensure 3 top priorities for Q2 have JIRA Epics in the `MPCP` project.
-    3.  **PO:** Review the `CIM` backlog. Identify the Features/Stories that address these 3 priorities.
-    4.  **PO:** Link the `CIM` tickets to the `MPCP` Epics using the `Implements` link type.
-
-### Phase 3: The "Dry Run" (Pre-PI Review)
-*   **Who:** Head of Product / Release Train Engineer
-*   **Actions:**
-    1.  Open the new PI Planning Dashboard.
-    2.  **Verify:** Do the 3 MPCP Epics show up in "Section 1"?
-    3.  **Verify:** Do they show the linked `CIM` tickets in the "Linked Issues" column?
-    4.  **Test the Gap:** Create a dummy "Unplanned Deliverable" in MPCP and confirm it appears on the Risk Board.
-
-### Phase 4: Full PI Planning (The Real Test)
-*   **Who:** All Teams
-*   **Actions:**
-    1.  Use the dashboard as the primary visual aid during the Q2 Planning session.
-    2.  Ask the "Golden Question" for every feature: *"Which Customer Deliverable does this implement?"*
+    1.  Review the **AI-Native WSJF** scores for new feedback on Board 1277.
+    2.  Promote high-score items (e.g., **ZSM-294** SLA Delivery Failures) into the active 1310 roadmap.
 
 ---
 
-## 4. Rollout Decision
-*   **Go:** If the dashboard successfully highlights gaps and dependencies, proceed to apply this to all top-tier customers (LLA, MCB, etc.) for Q3.
-*   **No-Go:** If the overhead of linking is too high or the visibility is confusing, revert to manual mapping and refine the architecture.
+## 4. Pilot Evaluation
+*   **Metrics:** 
+    *   **Blocker Resolution Time:** Time from 1277 issue creation to 1310 resolution.
+    *   **Context Fidelity:** Do developers on Board 1310 understand the customer impact of their technical tasks?

@@ -1,0 +1,26 @@
+{
+  "security": {
+    "auth": {
+      "selectedType": "oauth-personal"
+    }
+  },
+  "mcpServers": {
+    "atlassian": {
+      "command": "uvx",
+      "args": [
+        "mcp-atlassian"
+      ],
+      "env": {
+        "JIRA_URL": "YOUR_JIRA_URL",
+        "JIRA_USERNAME": "YOUR_JIRA_USERNAME",
+        "JIRA_API_TOKEN": "YOUR_JIRA_API_TOKEN",
+        "CONFLUENCE_URL": "YOUR_CONFLUENCE_URL",
+        "CONFLUENCE_USERNAME": "YOUR_CONFLUENCE_USERNAME",
+        "CONFLUENCE_API_TOKEN": "YOUR_CONFLUENCE_API_TOKEN"
+      }
+    }
+  },
+  "general": {
+    "previewFeatures": true
+  }
+}
